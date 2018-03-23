@@ -10,4 +10,4 @@ In this assignment you will practice putting together a simple image classificat
 - understand the differences and tradeoffs between these classifiers
 - get a basic understanding of performance improvements from using higher-level representations than raw pixels (e.g. color histograms, Histogram of Gradient (HOG) features)
 
-**Refer to: ** [http://cs231n.github.io/assignments2017/assignment1/](http://cs231n.github.io/assignments2017/assignment1/)
+**Refer to:** [http://cs231n.github.io/assignments2017/assignment1/](http://cs231n.github.io/assignments2017/assignment1/)
