@@ -76,7 +76,9 @@ class TwoLayerNet(object):
     # Store the result in the scores variable, which should be an array of      #
     # shape (N, C).                                                             #
     #############################################################################
-    pass
+    output1 = np.dot(X, W1) + b1
+    output1 = np.maximum(0, output1)  # ReLU
+    scores = np.dot(output1, W2) + b2
     #############################################################################
     #                              END OF YOUR CODE                             #
     #############################################################################
@@ -93,7 +95,14 @@ class TwoLayerNet(object):
     # in the variable loss, which should be a scalar. Use the Softmax           #
     # classifier loss.                                                          #
     #############################################################################
-    pass
+    scores -= np.max(scores, axis=1, keepdims=True)
+    scores = np.exp(scores)
+    scores /= np.sum(scores, axis=1, keepdims=True)
+
+    loss = -np.sum(np.log(scores[range(N), y]))
+    loss /= N
+    loss += 0.5 * reg * np.sum(W1 * W1)
+    loss += 0.5 * reg * np.sum(W2 * W2)
     #############################################################################
     #                              END OF YOUR CODE                             #
     #############################################################################
